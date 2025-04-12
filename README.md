@@ -28,8 +28,8 @@ A simple, responsive web application that converts temperatures between Celsius,
 
 ## Links
 
-- [GitHub Repository](https://github.com/yourusername/temperature-converter)
-- [Live Demo](https://yourusername.github.io/temperature-converter)
+- [GitHub Repository](https://github.com/sainath-666/Temperature_Converter)
+- [Live Demo](https://sainath-666.github.io/Temperature_Converter)
 
 
 ---
