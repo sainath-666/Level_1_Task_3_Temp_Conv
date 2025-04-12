@@ -1,56 +1,191 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(
-    to top,
-    #00f,
-    #aaf
-  ); /* Blue gradient background */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea, #764ba2);
   margin: 0;
+  padding: 20px;
+  color: #333;
+  transition: background 0.5s ease;
 }
 
 .converter {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 450px;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.converter h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #4a4a4a;
+  font-weight: 600;
+  font-size: 2rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.converter h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 3px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #555;
 }
 
 .converter input,
-.converter select,
-.converter button {
-  margin: 10px 0;
-  padding: 10px;
+.converter select {
   width: 100%;
-  box-sizing: border-box;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  transition: all 0.3s;
+  font-family: 'Poppins', sans-serif;
+}
+
+.converter input:focus,
+.converter select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.converter button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.converter button:hover {
+  background: linear-gradient(90deg, #5a6fd6, #6a429a);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.converter button:active {
+  transform: translateY(0);
 }
 
 .result {
-  margin-top: 20px;
-  font-size: 1.2em;
+  margin-top: 25px;
+  padding: 15px;
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 8px;
+  font-size: 1.1rem;
   word-wrap: break-word;
   text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
 }
 
-/* Responsive design for mobile devices */
-@media (max-width: 600px) {
-  .converter {
-    padding: 15px;
-  }
+/* Success and error states */
+.result.success {
+  background: rgba(72, 187, 120, 0.1);
+  color: #2f855a;
+  border-left: 3px solid #48bb78;
+}
 
+.result.error {
+  background: rgba(245, 101, 101, 0.1);
+  color: #c53030;
+  border-left: 3px solid #f56565;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.converter button:hover {
+  animation: pulse 1s infinite;
+  background: linear-gradient(90deg, #5a6fd6, #6a429a);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .converter {
+    padding: 25px;
+  }
+  
+  .converter h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .converter {
+    padding: 20px;
+  }
+  
+  .converter h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  
   .converter input,
   .converter select,
   .converter button {
-    padding: 8px;
+    padding: 10px;
+    font-size: 0.95rem;
   }
-
+  
   .result {
-    font-size: 1em;
+    font-size: 1rem;
+    padding: 12px;
   }
 }

@@ -5,25 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Temperature Converter</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
-    <div class="converter">
+    <main class="converter">
       <h1>Temperature Converter</h1>
-      <input
-        type="number"
-        id="temperature"
-        placeholder="Enter temperature"
-        required
-      />
-      <label for="unit">Select Unit:</label>
-      <select id="unit">
-        <option value="celsius">Celsius</option>
-        <option value="fahrenheit">Fahrenheit</option>
-        <option value="kelvin">Kelvin</option>
-      </select>
-      <button onclick="convertTemperature()">Convert</button>
-      <div class="result" id="result"></div>
-    </div>
+      
+      <div class="input-group">
+        <label for="temperature">
+          <i class="fas fa-thermometer-half"></i> Enter Temperature
+        </label>
+        <input
+          type="number"
+          id="temperature"
+          placeholder="Enter value"
+          required
+        />
+      </div>
+      
+      <div class="input-group">
+        <label for="unit">
+          <i class="fas fa-exchange-alt"></i> Select Unit
+        </label>
+        <select id="unit">
+          <option value="celsius">Celsius (°C)</option>
+          <option value="fahrenheit">Fahrenheit (°F)</option>
+          <option value="kelvin">Kelvin (K)</option>
+        </select>
+      </div>
+      
+      <button onclick="convertTemperature()">
+        <i class="fas fa-sync-alt"></i> Convert
+      </button>
+      
+      <div class="result" id="result">
+        <i class="fas fa-calculator"></i> Conversion results will appear here
+      </div>
+    </main>
+    
     <script src="script.js"></script>
   </body>
 </html>
